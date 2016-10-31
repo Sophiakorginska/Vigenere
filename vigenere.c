@@ -23,7 +23,6 @@ int main(int argc, string argv[]) {
         }
     }
 
-    // Зчитування тексту для шифрування.
     string textForCypher = GetString();
     if(textForCypher == NULL) {
         printf("%s", errorNotification);
@@ -36,10 +35,10 @@ int main(int argc, string argv[]) {
     for (int i = 0, n = 0; i < strlen(textForCypher); i++) {
         if (isalpha(textForCypher[i])) {
             if (isupper(textForCypher[i]))
-                // Шифрування великих літер
+                // Encryption uppercase letters.
                 printf("%c", ((((textForCypher[i] - 65) + ((toupper(cypherKey[n++%keyLenght]))-65)%26) % 26) + 65));
             if (islower(textForCypher[i]))
-                // Шифрування малих літер
+                // Encryption lowercase letters.
                 printf("%c", ((((textForCypher[i] - 97) + ((tolower(cypherKey[n++%keyLenght]))-97)%26) % 26) + 97));
         } else
             printf("%c", textForCypher[i]);
